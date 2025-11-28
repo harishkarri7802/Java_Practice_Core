@@ -5,7 +5,6 @@ package org.example;
 public class Week3_08 {
 
     public static int[] copyArrayFromAnotherArray(int[] array){
-        if(array==null) throw new IllegalArgumentException("Array cannot be null");
         int[] newArray = new int[array.length];
         for(int i =0;i< array.length;i++){
             newArray[i] = array[i];

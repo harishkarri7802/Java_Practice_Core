@@ -3,8 +3,6 @@ package org.example;
 
 public class Week3_13 {
     public static int[] mergeTwoArray(int[] arrayOne,int[] arrayTwo){
-        if(arrayOne==null || arrayTwo==null) throw new IllegalArgumentException("Array cannot be null");
-
         int[] newArray = new int[arrayOne.length + arrayTwo.length];
         for(int i =0;i<arrayOne.length;i++){
             newArray[i] = arrayOne[i];

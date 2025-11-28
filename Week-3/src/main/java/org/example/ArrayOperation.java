@@ -17,40 +17,4 @@ class ArrayOperation {
              System.out.println("Element " + i + " :" + array[i]);
          }
     }
-
-    public static int findTheLargestNumberAmongTheArray(int[] array){
-        int max = Integer.MIN_VALUE;
-        for(int i=0;i<array.length;i++){
-            if(array[i] > max){
-                max = array[i];
-            }
-        }
-        return max;
-    }
-
-    public static int findSecondLargestElement(int[] array){
-        int firstLargestNumber = Integer.MIN_VALUE;
-        int secondLargestNumber  = Integer.MIN_VALUE;
-        for(int i=0;i<array.length;i++){
-            if(firstLargestNumber < array[i]){
-                secondLargestNumber = firstLargestNumber;
-                firstLargestNumber = array[i];
-            }
-        }
-        return  secondLargestNumber;
-    }
-
-    public static int findThirdLargestElement(int[] array){
-        int firstLargestNumber = Integer.MIN_VALUE;
-        int secondLargestNumber  = Integer.MIN_VALUE;
-        int thirdLargestNumber = Integer.MIN_VALUE;
-        for(int i=0;i<array.length;i++){
-            if(firstLargestNumber < array[i]){
-                secondLargestNumber = firstLargestNumber;
-                thirdLargestNumber = secondLargestNumber;
-                firstLargestNumber = array[i];
-            }
-        }
-        return  thirdLargestNumber;
-    }
 }

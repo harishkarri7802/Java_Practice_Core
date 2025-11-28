@@ -6,7 +6,6 @@ import java.util.Set;
 
 public class Week3_14 {
     public static int[] removeDuplicateElementFromArray(int[] array){
-        if(array==null) throw new IllegalArgumentException("Array cannot be null");
 
         Set<Integer> uniqueSet = new HashSet<>();
         for(int i=0;i<array.length ;i++){
