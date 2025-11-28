@@ -10,24 +10,17 @@ class Calculator{
     public static void calculate(){
 
         while(true){
-
-
-
             System.out.println(" Enter number 1 : ");
             int number1 = sc.nextInt();
-
             System.out.println(" Enter number 2 : ");
             int number2 = sc.nextInt();
-
             System.out.println("choose your option ");
             System.out.println("+");
             System.out.println("-");
             System.out.println("/");
             System.out.println("*");
-
             String option = sc.next();
             System.out.println();
-
             switch (option){
                 case "+":
                     System.out.println("addition : " + (number1+number2));
@@ -45,23 +38,11 @@ class Calculator{
                     System.out.println("invalid.........");
             }
         }
-
     }
-
-
 }
-
-
-
 public class Week1_22 {
-
-
     public static void main(String[] args) {
-
         Calculator.calculate();
-
-
-
     }
 
 }
