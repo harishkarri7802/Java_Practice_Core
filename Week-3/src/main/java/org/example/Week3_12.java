@@ -3,6 +3,7 @@ package org.example;
 public class Week3_12 {
 
     public static int findSecondSmallestElement(int[] array){
+        if(array==null) throw new IllegalArgumentException("Array cannot be null");
         int firstSmallestNumber = Integer.MAX_VALUE;
         int secondSmallestNumber  = Integer.MAX_VALUE;
         for(int i=0;i<array.length;i++){

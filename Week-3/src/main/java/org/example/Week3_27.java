@@ -25,6 +25,5 @@ public class Week3_27 {
         int arrayTwo[] = ArrayOperation.getArrayInputFromUser();
         System.out.println("Union Array : ");
         unionOfTwoArrays(arrayOne,arrayTwo).stream().forEach(element-> System.out.println(element));
-
     }
 }

@@ -2,6 +2,7 @@ package org.example;
 //Count the occurrences of a specific element in an array.
 public class Week3_06 {
     public static int countNumberOccurencesOfElement(int[] array,int key){
+        if(array==null) throw new IllegalArgumentException("Array cannot be null");
         int count=0;
         for(int i =0;i<array.length-1;i++){
             if(array[i]==key){

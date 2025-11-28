@@ -5,6 +5,7 @@ package org.example;
 public class Week3_02 {
 
     public static int getTheSumOfArray(int[] array){
+        if(array==null) throw new IllegalArgumentException("Array cannot be null");
         int sum=0;
         for (int i=0;i<array.length;i++){
         sum += array[i];

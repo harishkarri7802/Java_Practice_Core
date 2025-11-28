@@ -5,6 +5,8 @@ package org.example;
 public class Week3_05 {
 
     public static void reverseAnArray(int[] array){
+        if(array==null) throw new IllegalArgumentException("Array cannot be null");
+
         int firstIndex = 0;
         int lastIndex = array.length-1;
         while(firstIndex < lastIndex){
