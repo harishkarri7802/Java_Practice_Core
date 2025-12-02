@@ -104,7 +104,6 @@ public class Common {
         }
     }
 
-
     public static char getValidCharacter(String message) {
         while (true) {
             try {
@@ -117,6 +116,73 @@ public class Common {
                 return data.charAt(0);
             } catch (CustomException e) {
                 System.out.println("Error: " + e.getMessage());
+            } catch (Exception e) {
+                System.out.println("Unexpected error: " + e.getMessage());
+            }
+        }
+    }
+
+    public static String getValidBrackets(String message){
+        while (true) {
+            try {
+                System.out.println(message);
+                String data = sc.next();
+//                 sc.next();
+                if (!data.matches("[{\\[\\]}{()]+")) {
+                    throw new CustomException("Only brackets  allowed!");
+                }
+                return data;
+            } catch (CustomException e) {
+                System.out.println("Error: " + e.getMessage());
+            } catch (Exception e) {
+                System.out.println("Unexpected error: " + e.getMessage());
+            }
+        }
+    }
+
+    public static String getValidEmail() {
+        while (true) {
+            try {
+                System.out.println("Enter a valid Email Id : ");
+                String data = sc.next();
+//                 sc.next();
+                if (!data.matches("[a-zA-Z0-9.-_]+@[a-zA-Z0-9_-]+\\.[a-zA-Z0-9]{2,}")) {
+                    throw new CustomException("Enter a valid email id allowed!");
+                }
+                return data;
+            } catch (CustomException e) {
+                System.out.println("Error: " + e.getMessage());
+            } catch (Exception e) {
+                System.out.println("Unexpected error: " + e.getMessage());
+            }
+        }
+    }
+
+    public static String getValidPhoneNumber() {
+        while (true) {
+            try {
+                System.out.println("Enter a valid  mobile number : ");
+                String data = sc.next();
+//                 sc.next();
+                if (!data.matches("^[0-9]{10}")) {
+                    throw new CustomException("Enter a valid mobile number allowed!");
+                }
+                return data;
+            } catch (CustomException e) {
+                System.out.println("Error: " + e.getMessage());
+            } catch (Exception e) {
+                System.out.println("Unexpected error: " + e.getMessage());
+            }
+        }
+    }
+
+    public static String getValidStringAndNumber(String message) {
+        while (true) {
+            try {
+                System.out.println(message);
+                String data = sc.nextLine();
+//                 sc.next();
+                return data.trim();
             } catch (Exception e) {
                 System.out.println("Unexpected error: " + e.getMessage());
             }

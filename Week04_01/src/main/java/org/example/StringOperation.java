@@ -1,6 +1,8 @@
 package org.example;
 
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StringOperation {
     private static Scanner sc= new Scanner(System.in);
@@ -245,5 +247,61 @@ public class StringOperation {
             }
         }
         return prefix;
+    }
+
+    public static void checkBracketsInStringBalanced(String stringValue) {
+        if(stringValue == null) throw new IllegalArgumentException("String cannot be null");
+        Stack<Character> stack = new Stack<>();
+        for(int i=0;i<stringValue.length();i++){
+            char bracket =stringValue.charAt(i);
+            if(bracket=='{' || bracket=='[' || bracket=='('){
+                stack.push(bracket);
+            }else {
+                char stackLast = stack.pop();
+                if(stackLast != bracket){
+                    System.out.println("Invalid, UnBalanced");
+                }
+            }
+        }
+        System.out.println("valid, Balanced");
+    }
+
+    public static void regexToExtractWordsFromString(String sentence) {
+        if(sentence == null) throw new IllegalArgumentException("String cannot be null");
+        List<String> list = new ArrayList<>();
+        Pattern pattern = Pattern.compile("\\b\\w+\\b");
+        Matcher matcher = pattern.matcher(sentence);
+        while (matcher.find()){
+            list.add(matcher.group());
+        }
+        System.out.println(list);
+    }
+
+    public static void regexToExtractDigitsFromString(String sentence) {
+        if(sentence == null) throw new IllegalArgumentException("String cannot be null");
+        List<String> list = new ArrayList<>();
+        Pattern pattern = Pattern.compile("\\b\\d+\\b");
+        Matcher matcher = pattern.matcher(sentence);
+        while (matcher.find()){
+            list.add(matcher.group());
+        }
+        System.out.println(list);
+    }
+
+    public static void regexToValidateUsername(String username) {
+        if(username == null) throw new IllegalArgumentException("String cannot be null");
+         if(!username.matches("^[a-zA-Z0-9]{5,10}")){
+             System.out.println("username is not valid");
+         }else {
+             System.out.println("username is valid");
+         }
+
+    }
+
+    public static void regexToValidateDate(String date) {
+        if(date == null) throw new IllegalArgumentException("date cannot be null");
+        if(date.matches("^()")){
+
+        }
     }
 }
