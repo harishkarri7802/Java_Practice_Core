@@ -88,8 +88,6 @@ class ArrayOperation {
         System.out.println("Second Half ");
         ArrayOperation.displayArrayElement(secondHalf);
     }
-
-
     public static void isArrayIsSortedInDSC(int[] arrayOne) {
         if(arrayOne==null)throw new IllegalArgumentException("array cannot be null");
         for(int i=0;i< arrayOne.length-1;i++){
@@ -100,7 +98,6 @@ class ArrayOperation {
         }
         System.out.println("arrays is not  sorted in descending order");
     }
-
     public static void isArrayIsSortedInASC(int[] arrayOne) {
         if(arrayOne==null)throw new IllegalArgumentException("array cannot be null");
         for(int i=0;i< arrayOne.length;i++){
@@ -111,7 +108,6 @@ class ArrayOperation {
         }
         System.out.println("arrays is not  sorted in ascending order");
     }
-
     public static void findMaximumProductOfThreeNumber(int[] arrayOne) {
         if(arrayOne==null)throw new IllegalArgumentException("array cannot be null");
         System.out.println("maximun product of three number are : " + (findSecondLargestElement(arrayOne)*findThirdLargestElement(arrayOne)*findTheLargestNumberAmongTheArray(arrayOne)));
@@ -123,7 +119,6 @@ class ArrayOperation {
 
 
     }
-
     public static void findLargestSumInSubArray(int[] arrayOne) {
         if(arrayOne==null)throw new IllegalArgumentException("array cannot be null");
         int currentMax=0;
@@ -209,8 +204,21 @@ class ArrayOperation {
     }
     public static void findLargestElementInRotatedArray(int[] arrayOne) {
         if(arrayOne==null)throw new IllegalArgumentException("array cannot be null");
-
-
+        int left = 0;
+        int right = arrayOne.length;
+        while(left<right){
+            if(arrayOne[left] < arrayOne[right]) {
+                System.out.println("largest number : " + arrayOne[right]);
+                return;
+            }
+            int mid =(left + (right - left)) /2;
+            if(arrayOne[mid] >arrayOne[right]){
+                left  = mid+1;
+            }else {
+                right = mid;
+            }
+        }
+        System.out.println("largest number : " + arrayOne[((left-1) + arrayOne.length ) % arrayOne.length]);
     }
     public static void findMajorityElementInArray(int[] arrayOne) {
         if(arrayOne==null)throw new IllegalArgumentException("array cannot be null");
@@ -239,7 +247,6 @@ class ArrayOperation {
             System.out.println("no majority element");
         }
     }
-
     public static void findMedianOfUnsortedArray(int[] arrayOne) {
         if(arrayOne==null)throw new IllegalArgumentException("array cannot be null");
         SortingAlgorithm.selectionSortASC(arrayOne);
@@ -254,10 +261,27 @@ class ArrayOperation {
             System.out.println(median);
         }
     }
-
     public static void findCommonElementsFromThreeSortedArray(int[] arrayOne,int[] arrayTwo,int[] arrayThree) {
         if(arrayOne==null)throw new IllegalArgumentException("array cannot be null");
+        int i=0;
+        int j=0;
+        int k=0;
+    }
 
+    public static void findSmallestElementInSortedArray(int[] arrayOne) {
+        if(arrayOne==null)throw new IllegalArgumentException("array cannot be null");
+         int left = 0;
+         int right = arrayOne.length-1;
 
+         while(left < right){
+             int mid  =( left + (right-left) )/2;
+
+             if(arrayOne[mid] > arrayOne[right]){
+                 left = mid+1;
+             }else {
+                 right=mid;
+             }
+         }
+        System.out.println("smallest element : "+ arrayOne[left]);
     }
 }
