@@ -1,6 +1,40 @@
 package org.example;
 
 class ArrayOperation {
+
+    public static int findTheLargestNumberAmongTheArray(int[] array){
+        int max = Integer.MIN_VALUE;
+        for(int i=0;i<array.length;i++){
+            if(array[i] > max){
+                max = array[i];
+            }
+        }
+        return max;
+    }
+    public static int findSecondLargestElement(int[] array){
+        int firstLargestNumber = Integer.MIN_VALUE;
+        int secondLargestNumber  = Integer.MIN_VALUE;
+        for(int i=0;i<array.length;i++){
+            if(firstLargestNumber < array[i]){
+                secondLargestNumber = firstLargestNumber;
+                firstLargestNumber = array[i];
+            }
+        }
+        return  secondLargestNumber;
+    }
+    public static int findThirdLargestElement(int[] array){
+        int firstLargestNumber = Integer.MIN_VALUE;
+        int secondLargestNumber  = Integer.MIN_VALUE;
+        int thirdLargestNumber  = Integer.MIN_VALUE;
+        for(int i=0;i<array.length;i++){
+            if(firstLargestNumber < array[i]){
+                thirdLargestNumber=secondLargestNumber;
+                secondLargestNumber = firstLargestNumber;
+                firstLargestNumber = array[i];
+            }
+        }
+        return  thirdLargestNumber;
+    }
     private ArrayOperation(){}
     public static int[] getArrayInputFromUser(){
         System.out.println("Array creation......");
@@ -51,4 +85,36 @@ class ArrayOperation {
     }
 
 
+    public static void isArrayIsSortedInDSC(int[] arrayOne) {
+        if(arrayOne==null)throw new IllegalArgumentException("array cannot be null");
+        for(int i=0;i< arrayOne.length;i++){
+            if(arrayOne[i]<arrayOne[i+1]){
+                System.out.println("arrays is sorted in descending order");
+                return;
+            }
+        }
+        System.out.println("arrays is not  sorted in descending order");
+    }
+
+    public static void isArrayIsSortedInASC(int[] arrayOne) {
+        if(arrayOne==null)throw new IllegalArgumentException("array cannot be null");
+        for(int i=0;i< arrayOne.length;i++){
+            if(arrayOne[i]<arrayOne[i+1]){
+                System.out.println("arrays is sorted in ascending order");
+                return;
+            }
+        }
+        System.out.println("arrays is not  sorted in ascending order");
+    }
+
+    public static void findMaximumProductOfThreeNumber(int[] arrayOne) {
+        if(arrayOne==null)throw new IllegalArgumentException("array cannot be null");
+        System.out.println("maximun product of three number are : " + (findSecondLargestElement(arrayOne)*));
+    }
+
+    public static void findMaximumProductOfTwoNumber(int[] arrayOne) {
+    }
+
+    public static void findLargestSumInSubArray(int[] arrayOne) {
+    }
 }

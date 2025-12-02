@@ -4,6 +4,6 @@ package org.example;
 public class Week3_36 {
     public static void main(String[] args) {
         int[] arrayOne = ArrayOperation.getArrayInputFromUser();
-
+        ArrayOperation.findLargestSumInSubArray(arrayOne);
     }
 }
