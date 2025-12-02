@@ -1,9 +1,9 @@
 package org.example;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class StringOperation {
+    private static Scanner sc= new Scanner(System.in);
 
     public static String reverseAString(String string) throws InputException {
         if(string == null) throw new InputException("string not be null");
@@ -167,8 +167,83 @@ public class StringOperation {
 
     public static void countNumberOfCharacterInString(String value){
         if (value == null) throw new IllegalArgumentException("String cannot be null");
-
+        Map<Character,Integer> count = new HashMap<>();
+        for(int i=0;i<value.length();i++){
+            count.put(value.charAt(i),count.getOrDefault(value.charAt(i),0)+1);
+        }
+        count.entrySet().stream().forEach(e->{
+            System.out.println(e.getKey() + " : " + e.getValue());
+        });
     }
 
+    public static String[] getStringInputFromUser(){
+        System.out.println("Array of String");
+        System.out.println("Enter the number of String");
+        int n = sc.nextInt();
+        String[] arrayString = new String[n];
+        for(int i=0;i<n;i++){
+            arrayString[i] = Common.getValidString("Enter the String "+i+" : " );
+        }
+        return arrayString;
+    }
 
+    public static String joinArrayOfStringIntoSingleStringUsingDelimiter(String[] valueOne,String deli) {
+        if(valueOne == null || deli==null) throw new IllegalArgumentException("string cannot be null");
+        if(valueOne.length==1) return valueOne[0];
+        return String.join(deli, valueOne);
+    }
+
+    public static void checkStringHasUniqueCharacter(String stringValue) {
+        if(stringValue == null) throw new IllegalArgumentException("Array cannot be null");
+        Set<Character> set = new HashSet<>();
+        for(int i=0;i<stringValue.length();i++){
+            if(!set.add(stringValue.charAt(i))){
+                System.out.println("string is not unique");
+                return;
+            }
+        }
+        System.out.println("string is unique");
+    }
+
+    public static void convertStringToCharacterArray(String valueOne) {
+        if(valueOne == null) throw new IllegalArgumentException("Array cannot be null");
+        char[] charcaterArray = valueOne.toCharArray();
+        for (char c:charcaterArray){
+            System.out.println(c);
+        }
+    }
+
+    public static void findLongestWorldInSentence(String sentence) {
+        if(sentence == null) throw new IllegalArgumentException("sentence cannot be null");
+        String longestWord = "";
+        String[] arrayString = sentence.split(" ");
+        for(int i=0;i<arrayString.length;i++){
+            if(arrayString[i].length() > longestWord.length()){
+                longestWord = arrayString[i];
+            }
+        }
+        System.out.println("longest word : " + longestWord);
+    }
+    public static String findSmallestWorldInArray(String arrayString[]) {
+        if(arrayString == null) throw new IllegalArgumentException("sentence cannot be null");
+        String smallestWord = arrayString[0];
+        for(int i=1;i<arrayString.length;i++){
+            if(arrayString[i].length() < smallestWord.length()){
+                smallestWord = arrayString[i];
+            }
+        }
+        return smallestWord;
+    }
+
+    public static String findLongestCommonPrefixWithinString(String[] arrayString) {
+        if(arrayString == null) throw new IllegalArgumentException("Array cannot be null");
+        String prefix = arrayString[0];
+        for(int i=1;i<arrayString.length;i++){
+            while(arrayString[i].indexOf(prefix) !=0){
+               prefix = prefix.substring(0,prefix.length()-1);
+               if(prefix.isEmpty()) return "";
+            }
+        }
+        return prefix;
+    }
 }
