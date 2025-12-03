@@ -384,6 +384,67 @@ public class StringOperation {
 
     public static void insertCharacterAtSpecificPositionInString(String stringValue, int position, char charcter) {
         if (stringValue==null) throw new IllegalArgumentException("string cannor be null");
+        String answer ="";
+        for(int i=0;i<stringValue.length();i++){
+            if(i!=position){
+                answer+=stringValue.charAt(i);
+            }else {
+                answer+=charcter;
+            }
+        }
+        System.out.println(stringValue);
+        System.out.println(" new value : " +answer);
+    }
+
+    public static void expandCompressedString(String stringValue) {
+        if (stringValue==null) throw new IllegalArgumentException("string cannor be null");
+         StringBuffer string  = new StringBuffer();
+         int i=0;
+         while(i< stringValue.length()){
+             char currentChar = stringValue.charAt(i);
+             i++;
+             int count =0;
+             while(i< stringValue.length() && Character.isDigit(stringValue.charAt(i))){
+                 count = count * 10 + (stringValue.charAt(i) - '0');
+                 i++;
+             }
+             if(count==0) count=1;
+
+             for(int j=0;j<count;j++){
+                 string.append(currentChar);
+             }
+         }
+        System.out.println(string.toString());
+    }
+
+    public static void findAllPermutationsOfString(String stringValue) {
+        if (stringValue==null) throw new IllegalArgumentException("string cannor be null");
+
+    }
+
+    public static boolean checkStringIsASubsquenceOfAnotherString(String stringOne, String stringTwo) {
+        if (stringOne==null || stringTwo==null) throw new IllegalArgumentException("string cannor be null");
+        int i=0;
+        int j=0;
+        while(i<stringOne.length() && j< stringTwo.length()){
+            if(stringOne.charAt(i) == stringTwo.charAt(j)){
+                j++;
+            }
+            i++;
+        }
+        return i==stringOne.length();
+    }
+
+    public static String removeAdjacentCharacterFromString(String stringValue) {
+        if (stringValue==null) throw new IllegalArgumentException("string cannor be null");
+        StringBuilder stringAnswer = new StringBuilder();
+        stringAnswer.append(stringValue.charAt(0));
+        for (int i = 1; i < stringValue.length(); i++) {
+            if (stringValue.charAt(i) != stringValue.charAt(i - 1)) {
+                stringAnswer.append(stringValue.charAt(i));
+            }
+        }
+        return stringAnswer.toString();
 
     }
 }
