@@ -419,8 +419,25 @@ public class StringOperation {
 
     public static void findAllPermutationsOfString(String stringValue) {
         if (stringValue==null) throw new IllegalArgumentException("string cannor be null");
+        List<String> answer = new ArrayList<>();
+        permute("",stringValue,answer);
+        answer.stream().forEach(e->{
+            System.out.println(e);
+        });
 
     }
+
+    public static void permute(String prefix,String remaining,List<String> answer){
+        if(remaining.isEmpty()){
+            answer.add(prefix);
+        }
+
+        for(int i=0;i<remaining.length();i++){
+            permute(prefix+remaining.charAt(i),remaining.substring(0,i)+remaining.substring(i+1),answer);
+        }
+
+    }
+
 
     public static boolean checkStringIsASubsquenceOfAnotherString(String stringOne, String stringTwo) {
         if (stringOne==null || stringTwo==null) throw new IllegalArgumentException("string cannor be null");
@@ -446,5 +463,17 @@ public class StringOperation {
         }
         return stringAnswer.toString();
 
+    }
+
+    public static void countSubstringInString(String stringValue, String substring) {
+        int count=0;
+        int index=0;
+        while ((index=stringValue.indexOf(substring,index)) !=-1){
+            count++;
+            index=index+substring.length();
+        }
+        System.out.println(stringValue);
+        System.out.println(substring);
+        System.out.println("count : " + count);
     }
 }
