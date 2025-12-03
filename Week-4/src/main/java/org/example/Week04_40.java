@@ -5,6 +5,11 @@ public class Week04_40 {
     public static void main(String[] args) {
       String stringValue = Common.getValidBrackets("Enter the proper brackets : ");
         System.out.println(stringValue);
-        StringOperation.checkBracketsInStringBalanced(stringValue);
+        boolean isValid = StringOperation.checkBracketsInStringBalanced(stringValue);
+        if(isValid){
+            System.out.println("valid");
+        }else {
+            System.out.println("invliad");
+        }
     }
 }

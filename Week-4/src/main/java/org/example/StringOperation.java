@@ -249,22 +249,32 @@ public class StringOperation {
         return prefix;
     }
 
-    public static void checkBracketsInStringBalanced(String stringValue) {
+    public static boolean checkBracketsInStringBalanced(String stringValue) {
         if(stringValue == null) throw new IllegalArgumentException("String cannot be null");
         Stack<Character> stack = new Stack<>();
+
         for(int i=0;i<stringValue.length();i++){
             char bracket =stringValue.charAt(i);
             if(bracket=='{' || bracket=='[' || bracket=='('){
                 stack.push(bracket);
+                System.out.println("bracket : "+bracket);
             }else {
+                if(stack.isEmpty()) return false;
                 char stackLast = stack.pop();
-                if(stackLast != bracket){
-                    System.out.println("Invalid, UnBalanced");
+
+                System.out.println("stack "+stackLast);
+                if(!isBracketValid(stackLast,bracket)){
+                    return false;
                 }
             }
         }
-        System.out.println("valid, Balanced");
+        return true;
     }
+
+    public static boolean isBracketValid(char open , char close){
+        return (open=='{' && close=='}') || (open=='(' && close==')') || (open=='[' && close==']');
+    }
+
 
     public static void regexToExtractWordsFromString(String sentence) {
         if(sentence == null) throw new IllegalArgumentException("String cannot be null");
@@ -300,13 +310,80 @@ public class StringOperation {
 
     public static void regexToValidateDate(String date) {
         if(date == null) throw new IllegalArgumentException("date cannot be null");
-        if(date.matches("^()")){
-
+        if(!date.matches("^(0[0-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/(19|20)\\d{2}$")){
+            System.out.println(date);
+            System.out.println("date is not valid .");
+        }else {
+            System.out.println("date is valid : " + date);
         }
     }
 
     public static void regexToReplaceAllDigitInStringWithHash(String stringValue) {
         if(stringValue == null) throw new IllegalArgumentException("date cannot be null");
         System.out.println(stringValue.replaceAll("\\d","#"));
+    }
+
+    public static void regexToRemoveHtmlTags(String htmlTags) {
+        if(htmlTags == null) throw new IllegalArgumentException("date cannot be null");
+        System.out.println(htmlTags);
+        System.out.println("after removing the html tags : " + htmlTags.replaceAll("<[^>]*>",""));
+    }
+
+    public static void regexToValidateIpAddress(String ipAddress) {
+        if(ipAddress == null) throw new IllegalArgumentException("date cannot be null");
+        String regex = "^(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)){3}$";
+        if(ipAddress.matches(regex)){
+            System.out.println("ip address is valid");
+         }else {
+            System.out.println("ip address is invalid");
+        }
+    }
+
+    public static void reverseAStringUsingStack(String stringValue) {
+        if (stringValue==null) throw new IllegalArgumentException("string cannor be null");
+        Stack<Character> stack = new Stack<>();
+        for (int i=0;i<stringValue.length();i++){
+            stack.push(stringValue.charAt(i));
+        }
+        String newValue = "";
+        for(int i=stack.size()-1;i>=0;i--){
+            newValue+=stack.pop();
+        }
+        System.out.println("revserse string using stack :" + newValue);
+    }
+
+    public static void reversePortionOfStringUsingDelimiter(String stringValue, String delimiter) throws InputException {
+        if (stringValue==null || delimiter==null) throw new IllegalArgumentException("string cannor be null");
+        String[] stringArray = stringValue.split(delimiter);
+        for(int i=0;i<stringArray.length;i++){
+            stringArray[i]= StringOperation.reverseAString(stringArray[i]);
+        }
+
+        for(int i=0;i<stringArray.length;i++){
+            System.out.println(stringArray[i]);
+        }
+    }
+
+    public static void compressAStringByGroupingRepeatedChar(String stringValue) {
+        if (stringValue==null) throw new IllegalArgumentException("string cannor be null");
+        StringBuffer compressed = new StringBuffer();
+        int count=0;
+        for(int i=0;i<stringValue.length();i++){
+            if(i+1 < stringValue.length() && stringValue.charAt(i)==stringValue.charAt(i+1)){
+                ++count;
+            }else {
+                compressed.append(stringValue.charAt(i));
+                if(count>1){
+                    compressed.append(count);
+                }
+                count=1;
+            }
+        }
+        System.out.println("compressed string : " + compressed);
+    }
+
+    public static void insertCharacterAtSpecificPositionInString(String stringValue, int position, char charcter) {
+        if (stringValue==null) throw new IllegalArgumentException("string cannor be null");
+
     }
 }
