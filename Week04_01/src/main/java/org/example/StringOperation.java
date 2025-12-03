@@ -304,4 +304,9 @@ public class StringOperation {
 
         }
     }
+
+    public static void regexToReplaceAllDigitInStringWithHash(String stringValue) {
+        if(stringValue == null) throw new IllegalArgumentException("date cannot be null");
+        System.out.println(stringValue.replaceAll("\\d","#"));
+    }
 }
