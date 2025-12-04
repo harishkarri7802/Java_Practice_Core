@@ -80,22 +80,19 @@ public class Operations {
             throw new IllegalArgumentException("list cannot be null");
         }
         list.stream().forEach(element->{
-            System.out.println("element : ");
+            System.out.println("element : "+element);
         });
     }
 
     public static <T> void mergeTwoListOfSameType(List<T> listIntegerOne, List<T> listIntegertwo) {
-        listIntegerOne.stream().forEach(element->{
-            System.out.println("element : ");
-        });
         if (listIntegerOne==null || listIntegertwo==null) throw new IllegalArgumentException("list cannot be null");
-        ArrayList<T> mergeList =new ArrayList<>();
+        List<T> mergeList =new ArrayList<>();
         mergeList.addAll(listIntegerOne);
         mergeList.addAll(listIntegertwo);
         System.out.println("before merge list 1 : ");
         printList(listIntegerOne);
         System.out.println("before merge list 2 : ");
-        printList(listIntegerOne);
+        printList(listIntegertwo);
         System.out.println("After merged : ");
         printList(mergeList);
     }

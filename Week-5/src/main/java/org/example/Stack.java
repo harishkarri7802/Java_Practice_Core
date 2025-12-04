@@ -3,19 +3,25 @@ package org.example;
 import java.util.ArrayList;
 
 public class Stack<T>{
-    private static Integer top =-1;
-    private final static Integer size =6;
-    private  ArrayList<T> stack = new ArrayList<>();
-    public <T> void push(T element){
-        if(element==null){
-            throw new IllegalArgumentException("element is null");
-        }
-        if(top >= size){
-            throw new IllegalArgumentException("stack overflow...");
-        }
-//        stack.add(element);
-        top++;
+
+    private  ArrayList<T> stack;
+
+    Stack(){
+        stack = new ArrayList<>();
     }
 
+    public void push(T element){
+        if(element==null) throw new IllegalArgumentException("element cannot be null");
+        stack.add(element);
+    }
+
+    public T pop(){
+        if(stack.isEmpty()) System.out.println("stack is underflow> there is no element");
+        return stack.remove(stack.size()-1);
+    }
+
+    public int getStackSize(){
+        return stack.size();
+    }
 
 }
