@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ef1d7ba4-e5ee-4d74-9f7a-43c505bef2cc" name="Changes" comment="add program 29" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="week-3" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;harishkarri7802&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/harishkarri7802/Java_Practice_Core.git&quot;,
+    &quot;accountId&quot;: &quot;2faa5adc-79ea-460d-9730-00372f313c87&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="3617iVkFihB2QgmEIBBi561xoq4" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Week3_01.executor": "Run",
+    "Application.Week3_02.executor": "Run",
+    "Application.Week3_03.executor": "Run",
+    "Application.Week3_04.executor": "Run",
+    "Application.Week3_05.executor": "Run",
+    "Application.Week3_06.executor": "Run",
+    "Application.Week3_08.executor": "Run",
+    "Application.Week3_09.executor": "Run",
+    "Application.Week3_10.executor": "Run",
+    "Application.Week3_11.executor": "Run",
+    "Application.Week3_12.executor": "Run",
+    "Application.Week3_13.executor": "Run",
+    "Application.Week3_14.executor": "Run",
+    "Application.Week3_15.executor": "Run",
+    "Application.Week3_17.executor": "Run",
+    "Application.Week3_18.executor": "Run",
+    "Application.Week3_19.executor": "Debug",
+    "Application.Week3_20.executor": "Run",
+    "Application.Week3_23.executor": "Run",
+    "Application.Week3_24.executor": "Run",
+    "Application.Week3_26.executor": "Run",
+    "Application.Week3_27.executor": "Run",
+    "Application.Week3_28.executor": "Run",
+    "Application.Week3_29.executor": "Run",
+    "Application.Week3_30.executor": "Run",
+    "Application.Week3_31.executor": "Run",
+    "Application.Week3_32.executor": "Run",
+    "Application.Week3_34.executor": "Run",
+    "Application.Week3_35.executor": "Run",
+    "Application.Week3_36.executor": "Run",
+    "Application.Week3_37.executor": "Run",
+    "Application.Week3_38.executor": "Run",
+    "Application.Week3_39.executor": "Run",
+    "Application.Week3_40.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "develop",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/softyoi programs/Java_Practice_Core/Week-3",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="week3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="week3" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ef1d7ba4-e5ee-4d74-9f7a-43c505bef2cc" name="Changes" comment="" />
+      <created>1764162470631</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764162470631</updated>
+    </task>
+    <task id="LOCAL-00001" summary="add program 29">
+      <option name="closed" value="true" />
+      <created>1764316037953</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1764316037953</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add program 29" />
+    <option name="LAST_COMMIT_MESSAGE" value="add program 29" />
+  </component>
+</project>
