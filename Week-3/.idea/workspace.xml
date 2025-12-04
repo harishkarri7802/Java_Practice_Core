@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef1d7ba4-e5ee-4d74-9f7a-43c505bef2cc" name="Changes" comment="add program 29" />
+    <list default="true" id="ef1d7ba4-e5ee-4d74-9f7a-43c505bef2cc" name="Changes" comment="add program 29">
+      <change afterPath="$PROJECT_DIR$/../Week04_01/src/main/java/org/example/Week04_46.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Week04_01/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Week04_01/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Week04_01/src/main/java/org/example/StringOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Week04_01/src/main/java/org/example/StringOperation.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,7 +88,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "week-4",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/softyoi programs/Java_Practice_Core/Week-3",

@@ -87,12 +87,8 @@ public class Common {
                 System.out.println(message);
                 String data = sc.next();
 //                 sc.next();
-                if (!data.matches("[a-zA-Z ]+")) {
+                if (!data.matches("[,-_\\.]+")) {
                     System.out.println("a");
-                    throw new CustomException("Only special character (delimiter) allowed!");
-                }
-                if(!data.matches("[0-9]+")){
-                    System.out.println("9");
                     throw new CustomException("Only special character (delimiter) allowed!");
                 }
                 return data;
@@ -183,6 +179,38 @@ public class Common {
                 String data = sc.nextLine();
 //                 sc.next();
                 return data.trim();
+            } catch (Exception e) {
+                System.out.println("Unexpected error: " + e.getMessage());
+            }
+        }
+    }
+
+    public static String getAnyString(String message) {
+        if (message==null)throw new IllegalArgumentException("string cannot be null");
+        while (true) {
+            try {
+                System.out.println(message);
+                String data = sc.nextLine();
+//                 sc.next();
+                return data.trim();
+            } catch (Exception e) {
+                System.out.println("Unexpected error: " + e.getMessage());
+            }
+        }
+    }
+
+    public static String getNumberAndDot(String message) {
+        if (message==null)throw new IllegalArgumentException("string cannot be null");
+        while (true) {
+            try {
+                System.out.println(message);
+                String data = sc.nextLine();
+                if (data.matches("[a-zA-Z\\.*]+")) {
+                    throw new CustomException("Only numbers and dots are allowed!");
+                }
+                return data.trim();
+            } catch (CustomException e) {
+                System.out.println("Error: " + e.getMessage());
             } catch (Exception e) {
                 System.out.println("Unexpected error: " + e.getMessage());
             }
