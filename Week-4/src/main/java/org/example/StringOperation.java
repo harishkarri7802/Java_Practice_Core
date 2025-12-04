@@ -1,0 +1,479 @@
+package org.example;
+
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class StringOperation {
+    private static Scanner sc= new Scanner(System.in);
+
+    public static String reverseAString(String string) throws InputException {
+        if(string == null) throw new InputException("string not be null");
+        String reverseString  = "";
+        for(int i=string.length()-1;i>=0;i--){
+            reverseString+=string.charAt(i);
+        }
+        return reverseString;
+    }
+    public static String converToUpperCase(String value){
+        if (value == null) throw new IllegalArgumentException("String cannot be null");
+        return value.toUpperCase().trim();
+    }
+    public static String converToLowerCase(String value){
+        if (value == null) throw new IllegalArgumentException("String cannot be null");
+        return value.toLowerCase().trim();
+    }
+    public static String getStringExtraction(String value,int start,int end) throws InputException {
+        if (value == null) throw new InputException("String cannot be null");
+        if(start > end) throw new InputException("start index cannot be greater then end index ");
+        if(start > value.length()-1 || end > value.length() ) throw new InputException("Enter the start index and end index within the string rage.");
+        return value.substring(start,end).trim();
+    }
+    public static String removeWhiteSpaceFromBothSide(String value ) throws InputException {
+        if (value == null) throw new InputException("String cannot be null");
+        return value.trim();
+    }
+    public static String[] splitStringToArrayOfWords(String value) throws InputException {
+        if (value == null) throw new InputException("String cannot be null");
+        return value.split(" ");
+    }
+    public static String replaceAllOccurenceOfGivenCharacter(String value,char oldCharacter,char newCharacter) throws InputException {
+        if (value == null) throw new InputException("String cannot be null");
+         return value.replace(oldCharacter,newCharacter).trim();
+    }
+    public static StringBuffer removeDuplicateCharacter(String value){
+        System.out.println("hello------");
+        if (value == null) throw new IllegalArgumentException("String cannot be null");
+        StringBuffer newValue = new StringBuffer("");
+        int[] markCharacter = new int[256];
+        for(int i=0;i<value.length();i++){
+            if(markCharacter[i] !=0){
+
+            }
+            ++markCharacter[i];
+            System.out.println(value.charAt(i) + "-----------" + markCharacter[i]);
+            newValue.append(value.charAt(i));
+        }
+        return newValue;
+    }
+
+    public static int countNumberOfWordsInString(String value){
+        if (value == null) throw new IllegalArgumentException("String cannot be null");
+        return value.split(" ").length;
+    }
+
+    public static String[] reverseWordsInString(String value) throws InputException {
+        if (value == null) throw new IllegalArgumentException("String cannot be null");
+        String[] stringArray = value.split(" ");
+        for(int i=0;i<stringArray.length;i++){
+            stringArray[i] = reverseAString(stringArray[i]);
+        }
+        return stringArray;
+    }
+
+    public static void findFirstNonRepeatCharacterInString(String value){
+        if (value == null) throw new IllegalArgumentException("String cannot be null");
+        for(int i=0;i<value.length();i++){
+            char c = value.charAt(i);
+            for(int j=i;j<value.length();j++){
+
+            }
+
+        }
+    }
+
+    public static boolean isTwoStringAnagram(String valueOne,String valueTwo){
+        if (valueOne==null || valueTwo == null) throw new IllegalArgumentException("String cannot be null");
+        if(valueOne.length() != valueTwo.length()){
+            return false;
+        }
+        Map<Character,Integer> valueOneMap = new HashMap<>();
+        Map<Character,Integer> valueTwoMap = new HashMap<>();
+        for(int i=0;i<valueOne.length();i++){
+            char c = valueOne.charAt(i);
+            if(valueOneMap.containsKey(c)){
+                valueOneMap.put(c,valueOneMap.getOrDefault(c,0)+1);
+            }else {
+                valueOneMap.put(c,0);
+            }
+        }
+        for(int i=0;i<valueTwo.length();i++){
+            char c = valueTwo.charAt(i);
+            if(valueTwoMap.containsKey(c)){
+                valueTwoMap.put(c,valueTwoMap.getOrDefault(c,0)+1);
+            }else {
+                valueTwoMap.put(c,0);
+            }
+        }
+        for(int i=0;i<valueOne.length();i++){
+            char c = valueOne.charAt(i);
+            if(!valueOneMap.containsKey(c) || !valueTwoMap.containsKey(c)){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static String removeCharacterFromString(String value,char character){
+        if (value == null) throw new IllegalArgumentException("String cannot be null");
+        String answer = "";
+        for (int i=0;i<value.length();i++){
+
+            if(value.charAt(i)!=character){
+                answer+=value.charAt(i);
+            }
+        }
+        return answer;
+    }
+    public static void countTheVowelsAndConsonant(String value){
+        value.toLowerCase();
+        if (value == null) throw new IllegalArgumentException("String cannot be null");
+        int vowelsCount =0;
+        int consonantCount=0;
+        for(int i=0;i<value.length();i++){
+            char c = value.charAt(i);
+            if(c=='a' || c=='e' || c=='i' || c=='o' || c=='u'){
+                vowelsCount++;
+            }else {
+                consonantCount++;
+            }
+        }
+        System.out.println("String : " + value);
+        System.out.println("number of vowels in string : " + vowelsCount);
+        System.out.println("number of consonant in string : " + consonantCount);
+    }
+
+    public static void checkStringStartWithAndEndWithSpeficString(String value,String startSubString,String endSubString){
+        if (value == null || startSubString == null || endSubString==null) throw new IllegalArgumentException("String cannot be null");
+        if(!value.startsWith(startSubString)){
+             throw new IllegalArgumentException("given substring does not starts with the given string");
+        }
+        if(!value.endsWith(endSubString)){
+            throw new IllegalArgumentException("given substring does not ends with the given string");
+        }
+        System.out.println("string : " + value);
+        System.out.println("start substring : " + startSubString);
+        System.out.println("end substring : " + endSubString);
+        System.out.println("given starts and ends substring matches with the given string");
+    }
+
+    public static void checkStringContainAnotherString(String valueOne ,String valueTwo){
+        if (valueOne == null || valueTwo == null) throw new IllegalArgumentException("String cannot be null");
+        if(valueOne.contains(valueTwo)){
+            System.out.println("String 1 contain String 2 as Substring.....");
+            System.out.println("String One : " + valueOne);
+            System.out.println("String Two : " + valueTwo);
+        }else {
+            System.out.println("String 1 contain String 2 as Substring.....");
+        }
+    }
+
+    public static void countNumberOfCharacterInString(String value){
+        if (value == null) throw new IllegalArgumentException("String cannot be null");
+        Map<Character,Integer> count = new HashMap<>();
+        for(int i=0;i<value.length();i++){
+            count.put(value.charAt(i),count.getOrDefault(value.charAt(i),0)+1);
+        }
+        count.entrySet().stream().forEach(e->{
+            System.out.println(e.getKey() + " : " + e.getValue());
+        });
+    }
+
+    public static String[] getStringInputFromUser(){
+        System.out.println("Array of String");
+        System.out.println("Enter the number of String");
+        int n = sc.nextInt();
+        String[] arrayString = new String[n];
+        for(int i=0;i<n;i++){
+            arrayString[i] = Common.getValidString("Enter the String "+i+" : " );
+        }
+        return arrayString;
+    }
+
+    public static String joinArrayOfStringIntoSingleStringUsingDelimiter(String[] valueOne,String deli) {
+        if(valueOne == null || deli==null) throw new IllegalArgumentException("string cannot be null");
+        if(valueOne.length==1) return valueOne[0];
+        return String.join(deli, valueOne);
+    }
+
+    public static void checkStringHasUniqueCharacter(String stringValue) {
+        if(stringValue == null) throw new IllegalArgumentException("Array cannot be null");
+        Set<Character> set = new HashSet<>();
+        for(int i=0;i<stringValue.length();i++){
+            if(!set.add(stringValue.charAt(i))){
+                System.out.println("string is not unique");
+                return;
+            }
+        }
+        System.out.println("string is unique");
+    }
+
+    public static void convertStringToCharacterArray(String valueOne) {
+        if(valueOne == null) throw new IllegalArgumentException("Array cannot be null");
+        char[] charcaterArray = valueOne.toCharArray();
+        for (char c:charcaterArray){
+            System.out.println(c);
+        }
+    }
+
+    public static void findLongestWorldInSentence(String sentence) {
+        if(sentence == null) throw new IllegalArgumentException("sentence cannot be null");
+        String longestWord = "";
+        String[] arrayString = sentence.split(" ");
+        for(int i=0;i<arrayString.length;i++){
+            if(arrayString[i].length() > longestWord.length()){
+                longestWord = arrayString[i];
+            }
+        }
+        System.out.println("longest word : " + longestWord);
+    }
+    public static String findSmallestWorldInArray(String arrayString[]) {
+        if(arrayString == null) throw new IllegalArgumentException("sentence cannot be null");
+        String smallestWord = arrayString[0];
+        for(int i=1;i<arrayString.length;i++){
+            if(arrayString[i].length() < smallestWord.length()){
+                smallestWord = arrayString[i];
+            }
+        }
+        return smallestWord;
+    }
+
+    public static String findLongestCommonPrefixWithinString(String[] arrayString) {
+        if(arrayString == null) throw new IllegalArgumentException("Array cannot be null");
+        String prefix = arrayString[0];
+        for(int i=1;i<arrayString.length;i++){
+            while(arrayString[i].indexOf(prefix) !=0){
+               prefix = prefix.substring(0,prefix.length()-1);
+               if(prefix.isEmpty()) return "";
+            }
+        }
+        return prefix;
+    }
+
+    public static boolean checkBracketsInStringBalanced(String stringValue) {
+        if(stringValue == null) throw new IllegalArgumentException("String cannot be null");
+        Stack<Character> stack = new Stack<>();
+
+        for(int i=0;i<stringValue.length();i++){
+            char bracket =stringValue.charAt(i);
+            if(bracket=='{' || bracket=='[' || bracket=='('){
+                stack.push(bracket);
+                System.out.println("bracket : "+bracket);
+            }else {
+                if(stack.isEmpty()) return false;
+                char stackLast = stack.pop();
+
+                System.out.println("stack "+stackLast);
+                if(!isBracketValid(stackLast,bracket)){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public static boolean isBracketValid(char open , char close){
+        return (open=='{' && close=='}') || (open=='(' && close==')') || (open=='[' && close==']');
+    }
+
+
+    public static void regexToExtractWordsFromString(String sentence) {
+        if(sentence == null) throw new IllegalArgumentException("String cannot be null");
+        List<String> list = new ArrayList<>();
+        Pattern pattern = Pattern.compile("\\b\\w+\\b");
+        Matcher matcher = pattern.matcher(sentence);
+        while (matcher.find()){
+            list.add(matcher.group());
+        }
+        System.out.println(list);
+    }
+
+    public static void regexToExtractDigitsFromString(String sentence) {
+        if(sentence == null) throw new IllegalArgumentException("String cannot be null");
+        List<String> list = new ArrayList<>();
+        Pattern pattern = Pattern.compile("\\b\\d+\\b");
+        Matcher matcher = pattern.matcher(sentence);
+        while (matcher.find()){
+            list.add(matcher.group());
+        }
+        System.out.println(list);
+    }
+
+    public static void regexToValidateUsername(String username) {
+        if(username == null) throw new IllegalArgumentException("String cannot be null");
+         if(!username.matches("^[a-zA-Z0-9]{5,10}")){
+             System.out.println("username is not valid");
+         }else {
+             System.out.println("username is valid");
+         }
+
+    }
+
+    public static void regexToValidateDate(String date) {
+        if(date == null) throw new IllegalArgumentException("date cannot be null");
+        if(!date.matches("^(0[0-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/(19|20)\\d{2}$")){
+            System.out.println(date);
+            System.out.println("date is not valid .");
+        }else {
+            System.out.println("date is valid : " + date);
+        }
+    }
+
+    public static void regexToReplaceAllDigitInStringWithHash(String stringValue) {
+        if(stringValue == null) throw new IllegalArgumentException("date cannot be null");
+        System.out.println(stringValue.replaceAll("\\d","#"));
+    }
+
+    public static void regexToRemoveHtmlTags(String htmlTags) {
+        if(htmlTags == null) throw new IllegalArgumentException("date cannot be null");
+        System.out.println(htmlTags);
+        System.out.println("after removing the html tags : " + htmlTags.replaceAll("<[^>]*>",""));
+    }
+
+    public static void regexToValidateIpAddress(String ipAddress) {
+        if(ipAddress == null) throw new IllegalArgumentException("date cannot be null");
+        String regex = "^(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)){3}$";
+        if(ipAddress.matches(regex)){
+            System.out.println("ip address is valid");
+         }else {
+            System.out.println("ip address is invalid");
+        }
+    }
+
+    public static void reverseAStringUsingStack(String stringValue) {
+        if (stringValue==null) throw new IllegalArgumentException("string cannor be null");
+        Stack<Character> stack = new Stack<>();
+        for (int i=0;i<stringValue.length();i++){
+            stack.push(stringValue.charAt(i));
+        }
+        String newValue = "";
+        for(int i=stack.size()-1;i>=0;i--){
+            newValue+=stack.pop();
+        }
+        System.out.println("revserse string using stack :" + newValue);
+    }
+
+    public static void reversePortionOfStringUsingDelimiter(String stringValue, String delimiter) throws InputException {
+        if (stringValue==null || delimiter==null) throw new IllegalArgumentException("string cannor be null");
+        String[] stringArray = stringValue.split(delimiter);
+        for(int i=0;i<stringArray.length;i++){
+            stringArray[i]= StringOperation.reverseAString(stringArray[i]);
+        }
+
+        for(int i=0;i<stringArray.length;i++){
+            System.out.println(stringArray[i]);
+        }
+    }
+
+    public static void compressAStringByGroupingRepeatedChar(String stringValue) {
+        if (stringValue==null) throw new IllegalArgumentException("string cannor be null");
+        StringBuffer compressed = new StringBuffer();
+        int count=0;
+        for(int i=0;i<stringValue.length();i++){
+            if(i+1 < stringValue.length() && stringValue.charAt(i)==stringValue.charAt(i+1)){
+                ++count;
+            }else {
+                compressed.append(stringValue.charAt(i));
+                if(count>1){
+                    compressed.append(count);
+                }
+                count=1;
+            }
+        }
+        System.out.println("compressed string : " + compressed);
+    }
+
+    public static void insertCharacterAtSpecificPositionInString(String stringValue, int position, char charcter) {
+        if (stringValue==null) throw new IllegalArgumentException("string cannor be null");
+        String answer ="";
+        for(int i=0;i<stringValue.length();i++){
+            if(i!=position){
+                answer+=stringValue.charAt(i);
+            }else {
+                answer+=charcter;
+            }
+        }
+        System.out.println(stringValue);
+        System.out.println(" new value : " +answer);
+    }
+
+    public static void expandCompressedString(String stringValue) {
+        if (stringValue==null) throw new IllegalArgumentException("string cannor be null");
+         StringBuffer string  = new StringBuffer();
+         int i=0;
+         while(i< stringValue.length()){
+             char currentChar = stringValue.charAt(i);
+             i++;
+             int count =0;
+             while(i< stringValue.length() && Character.isDigit(stringValue.charAt(i))){
+                 count = count * 10 + (stringValue.charAt(i) - '0');
+                 i++;
+             }
+             if(count==0) count=1;
+
+             for(int j=0;j<count;j++){
+                 string.append(currentChar);
+             }
+         }
+        System.out.println(string.toString());
+    }
+
+    public static void findAllPermutationsOfString(String stringValue) {
+        if (stringValue==null) throw new IllegalArgumentException("string cannor be null");
+        List<String> answer = new ArrayList<>();
+        permute("",stringValue,answer);
+        answer.stream().forEach(e->{
+            System.out.println(e);
+        });
+
+    }
+
+    public static void permute(String prefix,String remaining,List<String> answer){
+        if(remaining.isEmpty()){
+            answer.add(prefix);
+        }
+
+        for(int i=0;i<remaining.length();i++){
+            permute(prefix+remaining.charAt(i),remaining.substring(0,i)+remaining.substring(i+1),answer);
+        }
+
+    }
+
+
+    public static boolean checkStringIsASubsquenceOfAnotherString(String stringOne, String stringTwo) {
+        if (stringOne==null || stringTwo==null) throw new IllegalArgumentException("string cannor be null");
+        int i=0;
+        int j=0;
+        while(i<stringOne.length() && j< stringTwo.length()){
+            if(stringOne.charAt(i) == stringTwo.charAt(j)){
+                j++;
+            }
+            i++;
+        }
+        return i==stringOne.length();
+    }
+
+    public static String removeAdjacentCharacterFromString(String stringValue) {
+        if (stringValue==null) throw new IllegalArgumentException("string cannor be null");
+        StringBuilder stringAnswer = new StringBuilder();
+        stringAnswer.append(stringValue.charAt(0));
+        for (int i = 1; i < stringValue.length(); i++) {
+            if (stringValue.charAt(i) != stringValue.charAt(i - 1)) {
+                stringAnswer.append(stringValue.charAt(i));
+            }
+        }
+        return stringAnswer.toString();
+
+    }
+
+    public static void countSubstringInString(String stringValue, String substring) {
+        int count=0;
+        int index=0;
+        while ((index=stringValue.indexOf(substring,index)) !=-1){
+            count++;
+            index=index+substring.length();
+        }
+        System.out.println(stringValue);
+        System.out.println(substring);
+        System.out.println("count : " + count);
+    }
+}
